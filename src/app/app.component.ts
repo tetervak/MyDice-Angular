@@ -3,6 +3,7 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {RollData} from "./roll-data";
 import {FormsModule} from "@angular/forms";
+import {DiceDisplayComponent} from "./dice-display/dice-display.component";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     HeaderComponent,
     FooterComponent,
-    FormsModule
+    FormsModule,
+    DiceDisplayComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

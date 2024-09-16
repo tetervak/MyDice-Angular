@@ -1,11 +1,7 @@
 <app-header></app-header>
 <main>
   <h2>Roll the Dice</h2>
-  <p id="dice_row">
-    @for (value of diceValues; track value){
-      <img src="images/dice/side_{{value}}.png" alt="side {{value}}">
-    }
-  </p>
+  <app-dice-display [diceValues]="diceValues"></app-dice-display>
   <p id="total_row">
     <span class="total_label">Total:</span>
     <span class="total_number">{{ total }}</span>
@@ -27,4 +23,4 @@
     <a href="#" (click)="onReset()">Reset</a>
   </p>
 </main>
-<app-footer></app-footer>
+<app-footer name="Applied Computing"></app-footer>
