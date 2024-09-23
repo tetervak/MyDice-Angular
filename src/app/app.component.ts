@@ -4,6 +4,7 @@ import {FooterComponent} from "./footer/footer.component";
 import {RollData} from "./roll-data";
 import {FormsModule} from "@angular/forms";
 import {DiceDisplayComponent} from "./dice-display/dice-display.component";
+import {DiceRollerService} from "./dice-roller.service";
 
 @Component({
   selector: 'app-root',
@@ -23,27 +24,11 @@ export class AppComponent {
   total: number = 0;
   numberOfDice: number = 3;
 
-  private getRandomDiceValue(): number {
-    return 1 + Math.floor(6*Math.random());
-  }
-
-  private getRollData(numberOfDice: number): RollData {
-    const values: number[] = [];
-    let total: number = 0;
-    for(let i: number = 0; i < numberOfDice; i++){
-      let diceValue = this.getRandomDiceValue()
-      values.push(diceValue);
-      total += diceValue;
-    }
-    return {
-      numberOfDice: numberOfDice,
-      values: values,
-      total: total
-    };
+  constructor(private service: DiceRollerService) {
   }
 
   onRollDice(): void {
-    let rollData: RollData = this.getRollData(this.numberOfDice);
+    let rollData: RollData = this.service.getRollData(this.numberOfDice);
     this.diceValues =  rollData.values;
     this.total = rollData.total;
   }
