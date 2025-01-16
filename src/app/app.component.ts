@@ -3,6 +3,7 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {RollData} from "./roll-data";
 import {FormsModule} from "@angular/forms";
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     HeaderComponent,
     FooterComponent,
-    FormsModule
+    FormsModule,
+    NgOptimizedImage
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -50,6 +52,10 @@ export class AppComponent {
     this.diceValues = [];
     this.total = 0;
     this.numberOfDice = 3;
+  }
+
+  imageSrc(value: number): string{
+    return `images/dice/side_${value}.png`
   }
 
 }
